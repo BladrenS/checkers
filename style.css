@@ -1,0 +1,107 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+body {
+   background-image: url('./assets/img/bg.jpg');
+   background-size: cover;
+}
+
+h2 {
+   font-size: 60px;
+   font-style: italic;
+}
+
+.restart {
+   font-size: 45px;
+}
+
+.counter {
+   font-size: 40px;
+}
+
+.checkers {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin: 5% auto;
+}
+
+.info {
+   margin-right: 100px;
+   color: #fff;
+}
+
+.board {
+   position: relative;
+   display: flex;
+   flex-wrap: wrap;
+   width: 800px;
+   height: 800px;
+}
+
+.numbering {
+   position: absolute;
+   top: -50px;
+   width: 800px;
+   display: flex;
+   justify-content: space-around;
+   font-size: 40px;
+   color: #002329;
+}
+
+.numbering-bot {
+   position: absolute;
+   bottom: -50px;
+   width: 800px;
+   display: flex;
+   justify-content: space-around;
+   font-size: 40px;
+   color: #002329;
+}
+
+.numbering-left {
+   position: absolute;
+   left: -50px;
+   height: 800px;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+   font-size: 40px;
+   color: #002329;
+}
+
+.numbering-right {
+   position: absolute;
+   right: -50px;
+   height: 800px;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+   font-size: 40px;
+   color: #002329;
+}
+
+.cell {
+   width: 100px;
+   height: 100px;
+}
+
+.white {
+   background-color: #ebf9ff;
+}
+
+.grey {
+   background-color: #afafaf;
+}
+
+.checker {
+   width: 100%;
+   height: 100%;
+}
+
+.selected {
+   background-color: #008c96;
+}
