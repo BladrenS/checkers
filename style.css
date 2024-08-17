@@ -16,6 +16,8 @@ h2 {
 }
 
 .restart {
+   width: 50%;
+   margin: 0 auto;
    margin-top: 15px;
    font-size: 45px;
    transition: all 0.4s linear;
@@ -169,7 +171,7 @@ h2 {
 
 .history-matches {
    height: 40vh;
-   background-color: #c4c4c44b;
+   background-color: #e2f5f74b;
    border-radius: 15px;
    margin-top: 10px;
 }
@@ -201,9 +203,9 @@ h2 {
 margin-bottom: 5px;
 }
 
-@media (max-width: 1146px) {
+@media (max-width: 1168px) {
    .checkers {
-      flex-direction: column;
+      justify-content: space-around;
       margin: 0 auto;
       padding-top: 0;
    }
@@ -232,6 +234,44 @@ margin-bottom: 5px;
    }
 }
 
+@media (max-width: 1020px) {
+   .checkers {
+      position: relative;
+      flex-direction: column;
+   }
+
+   .info {
+      justify-content: center;
+      height: auto;
+   }
+
+   .history-matches {
+      height: 0;
+   }
+
+   .restart {
+      font-size: 35px;
+   }
+
+   .counter {
+      font-size: 25px;
+   }
+
+   .history {
+      position: absolute;
+      right: 1%;
+      top: 1%;
+   }
+
+   .history-matches {
+      width: 200px;
+      height: 15vh;
+      background-color: #616161a6;
+      color: #00ffff;
+      overflow: hidden;
+   }
+}
+
 @media (max-width: 700px) {
    .checkers {
       margin: 5% auto 29%;
@@ -239,7 +279,7 @@ margin-bottom: 5px;
 
    .info {
       margin-right: 0;
-      margin-bottom: 40px;
+      margin-bottom: 55px;
       text-align: center;
    }
 
@@ -261,6 +301,18 @@ margin-bottom: 5px;
       height: 400px;
       font-size: 30px;
    }
+
+   .history {
+      width: 80vw;
+      left: 50%;
+      top: 120%;
+      transform: translate(-50%, -50%);
+   }
+
+   .history-matches {
+      width: 100%;
+      height: 10vh;
+   }
 }
 
 @media (max-width: 550px) {
@@ -277,7 +329,7 @@ margin-bottom: 5px;
    }
 
    .counter {
-      font-size: 15px;
+      font-size: 20px;
    }
 
    .board {
@@ -313,5 +365,17 @@ margin-bottom: 5px;
 
    .numbering-right {
       right: -25px;
+   }
+
+   .history {
+      top: 130%;
+   }
+
+   .history-matches {
+      height: 15vh;
+   }
+
+   .footer {
+      font-size: 20px;
    }
 }

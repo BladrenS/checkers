@@ -373,14 +373,12 @@ board.addEventListener('click', (e) => {
    count.innerHTML = `White ${counterWhite} : ${counterBlack} Black`
    counterWhite = 0;
    counterBlack = 0;
-   let whoWonCounter = 0;
    if (count.innerHTML.includes('White 0')) {
       modalWinner.innerHTML = 'Black win! Congrats!';
       modal.classList.add('show');
-      whoWonCounter++;
       const item = document.createElement('div');
       item.classList.add('winner');
-      item.innerText = `${whoWonCounter}. Black win!`;
+      item.innerText = 'Black win!';
       history.appendChild(item);
       setTimeout(() => {
          modal.classList.remove('show');
@@ -390,10 +388,9 @@ board.addEventListener('click', (e) => {
    if (count.innerHTML.includes(' 0 Black') && modal.classList[1] !== true) {
       modalWinner.innerHTML = 'White win! Congrats!';
       modal.classList.add('show');
-      whoWonCounter++;
       const item = document.createElement('div');
       item.classList.add('winner');
-      item.innerText = `${whoWonCounter}. White win!`;
+      item.innerText = 'White win!';
       history.appendChild(item);
       setTimeout(() => {
          modal.classList.remove('show');
