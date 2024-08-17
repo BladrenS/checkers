@@ -2,6 +2,9 @@ const list = document.querySelectorAll('.cell');
 const board = document.querySelector('.board');
 const count = document.querySelector('.counter');
 const restart = document.querySelector('.restart');
+const modalWinner = document.querySelector('.modal-winner');
+const modal = document.querySelector('.modal');
+const history = document.querySelector('.history-matches')
 let counterWhite = 0;
 let counterBlack = 0;
 
@@ -77,7 +80,7 @@ board.addEventListener('click', (e) => {
             }
          }
          if (id === 8 || id === 16  || id === 24  || id === 32) {
-            if (document.getElementById(`${id + 4}`).classList[2]) {
+            if (document.getElementById(`${id + 4}`) && document.getElementById(`${id + 4}`).classList[2]) {
                document.getElementById(`${id + 4}`).classList.remove('can-delete');
                document.getElementById(`${id + 9}`).classList.remove('can-move');
             }
@@ -206,12 +209,22 @@ board.addEventListener('click', (e) => {
          }
          if (id === 5 || id === 13 || id === 21 || id === 29) {
             document.getElementById(`${id + 4}`).classList.remove('can-move');
-         }
+         }   
          if ((id === 1 || id === 9  || id === 17  || id === 25) && document.getElementById(`${id + 4}`).classList[2]) {
             if (document.getElementById(`${id + 4}`).classList[2].includes('can-delete')) {
                document.getElementById(`${id + 4}`).classList.remove('can-delete');
                document.getElementById(`${id + 7}`).classList.remove('can-move');
-            }}
+            }            
+         }
+         if (id === 1 || id === 9  || id === 17  || id === 25) {
+            if (document.getElementById(`${id - 4}`)) {               
+               if (document.getElementById(`${id - 4}`).classList[2])
+                  if (document.getElementById(`${id - 4}`).classList[2].includes('can-delete')) {
+                     document.getElementById(`${id - 4}`).classList.remove('can-delete');
+                     document.getElementById(`${id - 9}`).classList.remove('can-move');
+                  }
+            }
+         }
       }
    }
    if (e.target.classList[2] === 'can-move') {
@@ -360,8 +373,36 @@ board.addEventListener('click', (e) => {
    count.innerHTML = `White ${counterWhite} : ${counterBlack} Black`
    counterWhite = 0;
    counterBlack = 0;
+   let whoWonCounter = 0;
+   if (count.innerHTML.includes('White 0')) {
+      modalWinner.innerHTML = 'Black win! Congrats!';
+      modal.classList.add('show');
+      whoWonCounter++;
+      const item = document.createElement('div');
+      item.classList.add('winner');
+      item.innerText = `${whoWonCounter}. Black win!`;
+      history.appendChild(item);
+      setTimeout(() => {
+         modal.classList.remove('show');
+         rest();
+      }, 3000);   
+   }
+   if (count.innerHTML.includes(' 0 Black') && modal.classList[1] !== true) {
+      modalWinner.innerHTML = 'White win! Congrats!';
+      modal.classList.add('show');
+      whoWonCounter++;
+      const item = document.createElement('div');
+      item.classList.add('winner');
+      item.innerText = `${whoWonCounter}. White win!`;
+      history.appendChild(item);
+      setTimeout(() => {
+         modal.classList.remove('show');
+         rest();
+      }, 3000);  
+   }
 })
-restart.addEventListener('click', () => {
+
+function rest() {
    count.innerHTML = `White 12 : 12 Black`;
    list.forEach((item) => {
       item.innerHTML = '';
@@ -371,4 +412,6 @@ restart.addEventListener('click', () => {
       if (list[i].classList[1].includes('grey') && i < 24) list[i].innerHTML = '<img src="./assets/img/black.png" alt="img" class="checker">'
       if (list[i].classList[1].includes('grey') && i >= 40 ) list[i].innerHTML = '<img src="./assets/img/white.png" alt="img" class="checker">'
    }
-})
+   modal.classList.remove('show');
+};
+restart.addEventListener('click', () => rest());
