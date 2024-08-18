@@ -66,7 +66,7 @@ h2 {
    display: flex;
    justify-content: space-around;
    font-size: 40px;
-   color: #002329;
+   color: #59e6ff9a;
 }
 
 .numbering-bot {
@@ -76,7 +76,7 @@ h2 {
    display: flex;
    justify-content: space-around;
    font-size: 40px;
-   color: #002329;
+   color: #59e6ff9a;
 }
 
 .numbering-left {
@@ -87,7 +87,7 @@ h2 {
    flex-direction: column;
    justify-content: space-around;
    font-size: 40px;
-   color: #002329;
+   color: #59e6ff9a;
 }
 
 .numbering-right {
@@ -98,7 +98,7 @@ h2 {
    flex-direction: column;
    justify-content: space-around;
    font-size: 40px;
-   color: #002329;
+   color: #59e6ff9a;
 }
 
 .cell {
